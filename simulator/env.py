@@ -34,6 +34,8 @@ class TrafficSimulator:
         total_reward = 0
         outgoing = []
         step_completed = 0
+        
+        info_wait, info_fuel, info_cars, info_max_wait, info_e_delay = 0, 0, 0, 0, 0
 
         for i in range(self.size):
             for j in range(self.size):
@@ -69,12 +71,21 @@ class TrafficSimulator:
                         if v.wait_time > 2:
                             t_wait += v.wait_time
                             t_fuel += v.fuel_consumed
+                        
+                        if v.is_emergency: 
+                            e_penalty += v.wait_time * 0.5
+                            
                         t_cars += 1
                         m_wait = max(m_wait, v.wait_time)
-                        if v.is_emergency: e_penalty += v.wait_time * 0.5
 
                 den = t_cars + 1
                 total_reward += (len(moved) / den) - (t_wait / den) - (t_fuel / den) - (e_penalty / den)
+                
+                info_wait += t_wait
+                info_fuel += t_fuel
+                info_cars += t_cars
+                info_max_wait = max(info_max_wait, m_wait)
+                info_e_delay += e_penalty
 
         # 5. Global Movement Logic
         for i, j, d, v in outgoing:
@@ -91,8 +102,17 @@ class TrafficSimulator:
         # Normalize step reward to fit OpenEnv specification [0.0, 1.0]
         step_reward = max(0.0, min(1.0, 0.5 + (total_reward / 20.0)))
         
+        info_dict = {
+            "cars_passed": step_completed,
+            "total_cars": info_cars,
+            "total_wait": float(info_wait),
+            "total_fuel": float(info_fuel),
+            "max_wait": float(info_max_wait),
+            "emergency_delay": float(info_e_delay)
+        }
+        
         self.step_count += 1
-        return self.get_state(), step_reward, (self.step_count >= self.max_steps), {}
+        return self.get_state(), step_reward, (self.step_count >= self.max_steps), info_dict
 
     def get_state(self):
         state = {}
