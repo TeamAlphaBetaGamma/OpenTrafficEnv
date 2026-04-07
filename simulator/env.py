@@ -66,8 +66,9 @@ class TrafficSimulator:
                 t_wait, t_fuel, t_cars, m_wait, e_penalty = 0, 0, 0, 0, 0
                 for lane in intersection.lanes.values():
                     for v in lane:
-                        t_wait += v.wait_time
-                        t_fuel += v.fuel_consumed
+                        if v.wait_time > 2:
+                            t_wait += v.wait_time
+                            t_fuel += v.fuel_consumed
                         t_cars += 1
                         m_wait = max(m_wait, v.wait_time)
                         if v.is_emergency: e_penalty += v.wait_time * 0.5
@@ -86,8 +87,12 @@ class TrafficSimulator:
                 self.completed_trips += 1
 
         total_reward += step_completed * 0.5 # Throughput bonus
+        
+        # Normalize step reward to fit OpenEnv specification [0.0, 1.0]
+        step_reward = max(0.0, min(1.0, 0.5 + (total_reward / 20.0)))
+        
         self.step_count += 1
-        return self.get_state(), total_reward, (self.step_count >= self.max_steps), {}
+        return self.get_state(), step_reward, (self.step_count >= self.max_steps), {}
 
     def get_state(self):
         state = {}
@@ -105,5 +110,7 @@ class TrafficSimulator:
         return state
 
     def get_score(self, total_reward):
-        # Professional 0-1 Normalization
-        return max(0.0, min(1.0, (total_reward + 500) / 600))
+        # Professional 0-1 Normalization based on sum of 0-1 step rewards
+        if self.step_count == 0:
+            return 0.0
+        return max(0.0, min(1.0, total_reward / self.step_count))
