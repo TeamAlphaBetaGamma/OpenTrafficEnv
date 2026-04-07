@@ -24,7 +24,7 @@ class Intersection:
 
         for d in directions:
             for _ in range(min(k, len(self.lanes[d]))):
-                moved.append(self.lanes[d].popleft())
+                moved.append((d,self.lanes[d].popleft()))
 
         return moved
 
