@@ -71,12 +71,9 @@ class TrafficSimulator:
                         if v.wait_time > 2:
                             t_wait += v.wait_time
                             t_fuel += v.fuel_consumed
-                        
-                        if v.is_emergency: 
-                            e_penalty += v.wait_time * 0.5
-                            
                         t_cars += 1
                         m_wait = max(m_wait, v.wait_time)
+                        if v.is_emergency: e_penalty += v.wait_time * 0.5
 
                 den = t_cars + 1
                 total_reward += (len(moved) / den) - (t_wait / den) - (t_fuel / den) - (e_penalty / den)
