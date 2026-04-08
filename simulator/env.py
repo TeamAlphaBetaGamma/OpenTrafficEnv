@@ -16,17 +16,18 @@ class TrafficSimulator:
 
         self.grid = [[Intersection() for _ in range(self.size)] for _ in range(self.size)]
         self.step_count = 0
-        self.max_steps = 50
+        self.max_steps = 100
         self.completed_trips = 0
 
     def set_seed(self, seed):
         self.base_seed = seed
         random.seed(seed)
 
-    def reset(self):
+    def reset(self, max_steps=100):
         self.set_seed(self.base_seed)
         self.grid = [[Intersection() for _ in range(self.size)] for _ in range(self.size)]
         self.step_count = 0
+        self.max_steps = max_steps
         self.completed_trips = 0
         return self.get_state()
 
@@ -34,6 +35,8 @@ class TrafficSimulator:
         total_reward = 0
         outgoing = []
         step_completed = 0
+        
+        info_wait, info_fuel, info_cars, info_max_wait, info_e_delay = 0, 0, 0, 0, 0
 
         for i in range(self.size):
             for j in range(self.size):
@@ -66,14 +69,21 @@ class TrafficSimulator:
                 t_wait, t_fuel, t_cars, m_wait, e_penalty = 0, 0, 0, 0, 0
                 for lane in intersection.lanes.values():
                     for v in lane:
-                        t_wait += v.wait_time
-                        t_fuel += v.fuel_consumed
+                        if v.wait_time > 2:
+                            t_wait += v.wait_time
+                            t_fuel += v.fuel_consumed
                         t_cars += 1
                         m_wait = max(m_wait, v.wait_time)
                         if v.is_emergency: e_penalty += v.wait_time * 0.5
 
                 den = t_cars + 1
                 total_reward += (len(moved) / den) - (t_wait / den) - (t_fuel / den) - (e_penalty / den)
+                
+                info_wait += t_wait
+                info_fuel += t_fuel
+                info_cars += t_cars
+                info_max_wait = max(info_max_wait, m_wait)
+                info_e_delay += e_penalty
 
         # 5. Global Movement Logic
         for i, j, d, v in outgoing:
@@ -86,8 +96,21 @@ class TrafficSimulator:
                 self.completed_trips += 1
 
         total_reward += step_completed * 0.5 # Throughput bonus
+        
+        # Normalize step reward to fit OpenEnv specification [0.0, 1.0]
+        step_reward = max(0.0, min(1.0, 0.5 + (total_reward / 20.0)))
+        
+        info_dict = {
+            "cars_passed": step_completed,
+            "total_cars": info_cars,
+            "total_wait": float(info_wait),
+            "total_fuel": float(info_fuel),
+            "max_wait": float(info_max_wait),
+            "emergency_delay": float(info_e_delay)
+        }
+        
         self.step_count += 1
-        return self.get_state(), total_reward, (self.step_count >= self.max_steps), {}
+        return self.get_state(), step_reward, (self.step_count >= self.max_steps), info_dict
 
     def get_state(self):
         state = {}
@@ -105,5 +128,7 @@ class TrafficSimulator:
         return state
 
     def get_score(self, total_reward):
-        # Professional 0-1 Normalization
-        return max(0.0, min(1.0, (total_reward + 500) / 600))
+        # Professional 0-1 Normalization based on sum of 0-1 step rewards
+        if self.step_count == 0:
+            return 0.0
+        return max(0.0, min(1.0, total_reward / self.step_count))
