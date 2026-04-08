@@ -12,11 +12,19 @@ license = {text = "MIT"}
 authors = [{name = "AlphaBetaGamma"}]
 dependencies = [
   "fastapi>=0.111.0",
-  "uvicorn>=0.30.0",
+  "openenv-core>=0.2.0",
+  "openai>=1.0.0",
   "pydantic>=2.0.0",
   "requests>=2.31.0",
-  "openai>=1.0.0",
+  "uvicorn>=0.30.0",
 ]
 
+[project.scripts]
+server = "server.app:main"
+
 [tool.setuptools]
-py-modules = []
+py-modules = ["models"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agent*", "server*", "simulator*"]

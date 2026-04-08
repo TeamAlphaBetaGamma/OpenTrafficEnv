@@ -112,7 +112,7 @@ def main() -> int:
         sys.executable,
         "-m",
         "uvicorn",
-        "server:app",
+        "server.app:app",
         "--host",
         "127.0.0.1",
         "--port",
