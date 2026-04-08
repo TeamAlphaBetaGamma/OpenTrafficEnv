@@ -23,6 +23,7 @@ The Hugging Face Space runs the API server from the Dockerfile.
 - **Reward utilities**: `agent/reward.py` (step reward + episode score)
 - **Client/inference**: `inference.py` (runs tasks 1–3 by calling the server)
 - **Runtime smoke test**: `validate_runtime.py` (starts server locally and runs `inference.py` with LLM disabled)
+- **Logged runner**: `run_logged.py` (runs `inference.py` and writes a combined log + wall-clock time)
 - **Task grader**: `agent/grader.py` (deterministic episode scoring + success threshold)
 
 ## HTTP API
@@ -98,6 +99,34 @@ export ENV_BASE_URL=http://127.0.0.1:7860
 python3 inference.py
 ```
 
+### Generate a combined run log (recommended)
+
+This repo includes a small helper that runs the environment end-to-end and writes a single log file containing:
+
+- server readiness check
+- full `inference.py` output
+- `exit_code` and `wall_seconds` summary
+
+It also loads variables from a local `.env` file if present.
+
+Run with LLM disabled (deterministic + faster):
+
+```bash
+python3 run_logged.py --disable-llm 1 --log runs/disable_llm_1.log
+```
+
+Run with LLM enabled:
+
+```bash
+python3 run_logged.py --disable-llm 0 --log runs/disable_llm_0.log
+```
+
+By default, `run_logged.py` uses `ENV_BASE_URL` from `.env`/environment. To force local:
+
+```bash
+python3 run_logged.py --disable-llm 1 --base-url http://127.0.0.1:7860 --log runs/local_disable_llm_1.log
+```
+
 ## Run locally (Docker)
 
 ```bash
@@ -121,7 +150,9 @@ ENV_BASE_URL=http://127.0.0.1:7860 DISABLE_LLM=1 python3 inference.py
 
 ## Configuration (env vars)
 
-See `.env.example` for a template.
+You can set env vars in your shell, or put them in a local `.env` file.
+
+Important: `.env` commonly contains secrets (e.g., API keys). Do not commit it.
 
 - `ENV_BASE_URL`: where `inference.py` calls the environment (default `http://localhost:7860`)
 - `DISABLE_LLM`: set to `1` to force the policy to avoid LLM calls
@@ -134,7 +165,9 @@ See `.env.example` for a template.
 ## Notes
 
 - The environment uses a **minimum green time** constraint (prevents flickering).
-- The simulator returns a normalized `reward` per step; `agent/reward.py` can compute a reward from `info` as a fallback.
+- The simulator returns a normalized `reward` per step in `[0,1]`.
+	- Reward is designed to stay informative under congestion (it avoids large negative sums that would collapse to `0.0`).
+	- `agent/reward.py` can compute a reward from `info` as a fallback if needed.
 
 ## Repository layout
 
