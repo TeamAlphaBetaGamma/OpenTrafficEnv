@@ -25,6 +25,26 @@ class StepRequest(BaseModel):
     actions: list[TrafficAction] = Field(default_factory=list)
 
 
+@app.get("/")
+def root() -> dict:
+    return {
+        "name": "OpenTrafficEnv",
+        "status": "ok",
+        "endpoints": {
+            "reset": "POST /reset",
+            "step": "POST /step",
+            "state": "GET /state",
+            "health": "GET /health",
+            "docs": "GET /docs",
+        },
+    }
+
+
+@app.get("/health")
+def health() -> dict:
+    return {"status": "ok"}
+
+
 _env: Optional[TrafficSimulator] = None
 _task_id: int = 1
 
