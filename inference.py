@@ -24,6 +24,13 @@ logger = logging.getLogger(__name__)
 # ── Configuration ─────────────────────────────────────────────────────────────
 ENV_BASE_URL: str = os.environ.get("ENV_BASE_URL", "http://localhost:7860")
 
+# Pre-submission checklist env vars
+API_BASE_URL: str = os.environ.get("API_BASE_URL", "https://api.openai.com/v1")
+MODEL_NAME: str = os.environ.get("MODEL_NAME", "gpt-4o-mini")
+HF_TOKEN: str = os.environ.get("HF_TOKEN", "")
+# Optional: used only when running from a local Docker image in some harnesses
+LOCAL_IMAGE_NAME: str = os.environ.get("LOCAL_IMAGE_NAME", "")
+
 TASK_CONFIG = {
     1: {
         "description": "1x1 grid, low density (P=0.2), no emergencies",
@@ -109,7 +116,7 @@ def run_episode(task_id: int, client: OpenAI) -> dict:
     description = config["description"]
 
     # ── START log ─────────────────────────────────────────────────────────────
-    log_start(task=f"Task {task_id}", env="OpenTrafficEnv", model=os.environ.get("MODEL_NAME", "gpt-4o-mini"))
+    log_start(task=f"Task {task_id}", env="OpenTrafficEnv", model=MODEL_NAME)
 
     # ── Reset the environment ─────────────────────────────────────────────────
     obs: GlobalState = env_reset(task_id, seed)
