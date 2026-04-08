@@ -1,19 +1,19 @@
 === OpenTrafficEnv Run Log ===
-started_at_utc=2026-04-08T16:18:49.098189+00:00
-ENV_BASE_URL=http://127.0.0.1:7860
+started_at_utc=2026-04-08T16:23:28.704828+00:00
+ENV_BASE_URL=https://sadhana14-alphabetagamma.hf.space
 DISABLE_LLM=1
 python=/Users/sadhanatp/Downloads/MetaAI/OpenTrafficEnv/.venv/bin/python
 
-=== Starting server (uvicorn) ===
+=== Using external server (no local uvicorn) ===
 === Server ready ===
 
 === Running inference.py ===
-2026-04-08 21:48:50,328 INFO === OpenTrafficEnv Inference Script Starting ===
-2026-04-08 21:48:50,328 INFO ENV_BASE_URL: http://127.0.0.1:7860
-2026-04-08 21:48:50,328 INFO MODEL_NAME: not set
+2026-04-08 21:53:31,833 INFO === OpenTrafficEnv Inference Script Starting ===
+2026-04-08 21:53:31,833 INFO ENV_BASE_URL: https://sadhana14-alphabetagamma.hf.space
+2026-04-08 21:53:31,833 INFO MODEL_NAME: gpt-4o-mini
 [START] {"task": "Task 1", "env": "OpenTrafficEnv", "model": "gpt-4o-mini"}
-2026-04-08 21:48:50,359 INFO Calling reset: task_id=1, seed=42
-2026-04-08 21:48:50,363 INFO Task 1 reset. Intersections: 1
+2026-04-08 21:53:31,866 INFO Calling reset: task_id=1, seed=42
+2026-04-08 21:53:33,052 INFO Task 1 reset. Intersections: 1
 [STEP] {"step": 1, "action": 0, "reward": 0.5, "done": false, "error": null}
 [STEP] {"step": 2, "action": 0, "reward": 0.575, "done": false, "error": null}
 [STEP] {"step": 3, "action": 0, "reward": 0.575, "done": false, "error": null}
@@ -38,12 +38,12 @@ python=/Users/sadhanatp/Downloads/MetaAI/OpenTrafficEnv/.venv/bin/python
 [STEP] {"step": 22, "action": 0, "reward": 0.5, "done": false, "error": null}
 [STEP] {"step": 23, "action": 0, "reward": 0.5, "done": false, "error": null}
 [STEP] {"step": 24, "action": 0, "reward": 0.5, "done": false, "error": null}
-[STEP] {"step": 25, "action": 0, "reward": 0.5, "done": true, "error": null}
+[STEP] {"step": 25, "action": 0, "reward": 0.5, "done": false, "error": null}
 [END] {"success": true, "steps": 25, "score": 0.5166, "rewards": [0.5, 0.575, 0.575, 0.5, 0.575, 0.5, 0.5, 0.575, 0.5, 0.5, 0.5, 0.5, 0.39, 0.725, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
-2026-04-08 21:48:50,403 INFO Task 1 complete. Score: 0.5166
+2026-04-08 21:54:09,005 INFO Task 1 complete. Score: 0.5166
 [START] {"task": "Task 2", "env": "OpenTrafficEnv", "model": "gpt-4o-mini"}
-2026-04-08 21:48:50,403 INFO Calling reset: task_id=2, seed=42
-2026-04-08 21:48:50,405 INFO Task 2 reset. Intersections: 4
+2026-04-08 21:54:09,005 INFO Calling reset: task_id=2, seed=42
+2026-04-08 21:54:10,250 INFO Task 2 reset. Intersections: 4
 [STEP] {"step": 1, "action": 0, "reward": 0.6, "done": false, "error": null}
 [STEP] {"step": 2, "action": 0, "reward": 0.7, "done": false, "error": null}
 [STEP] {"step": 3, "action": 0, "reward": 0.5833, "done": false, "error": null}
@@ -78,12 +78,12 @@ python=/Users/sadhanatp/Downloads/MetaAI/OpenTrafficEnv/.venv/bin/python
 [STEP] {"step": 32, "action": 1, "reward": 0.0, "done": false, "error": null}
 [STEP] {"step": 33, "action": 0, "reward": 0.0, "done": false, "error": null}
 [STEP] {"step": 34, "action": 0, "reward": 0.0, "done": false, "error": null}
-[STEP] {"step": 35, "action": 0, "reward": 0.0, "done": true, "error": null}
+[STEP] {"step": 35, "action": 0, "reward": 0.0, "done": false, "error": null}
 [END] {"success": false, "steps": 35, "score": 0.2176, "rewards": [0.6, 0.7, 0.5833, 0.85, 0.675, 0.7417, 0.7, 0.7625, 0.252, 0.4933, 0.7717, 0.12, 0.0162, 0.0, 0.3517, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}
-2026-04-08 21:48:50,470 INFO Task 2 complete. Score: 0.2176
+2026-04-08 21:54:54,470 INFO Task 2 complete. Score: 0.2176
 [START] {"task": "Task 3", "env": "OpenTrafficEnv", "model": "gpt-4o-mini"}
-2026-04-08 21:48:50,470 INFO Calling reset: task_id=3, seed=42
-2026-04-08 21:48:50,472 INFO Task 3 reset. Intersections: 9
+2026-04-08 21:54:54,470 INFO Calling reset: task_id=3, seed=42
+2026-04-08 21:54:55,705 INFO Task 3 reset. Intersections: 9
 [STEP] {"step": 1, "action": 0, "reward": 0.85, "done": false, "error": null}
 [STEP] {"step": 2, "action": 0, "reward": 0.65, "done": false, "error": null}
 [STEP] {"step": 3, "action": 0, "reward": 0.625, "done": false, "error": null}
@@ -128,16 +128,15 @@ python=/Users/sadhanatp/Downloads/MetaAI/OpenTrafficEnv/.venv/bin/python
 [STEP] {"step": 42, "action": 0, "reward": 0.0, "done": false, "error": null}
 [STEP] {"step": 43, "action": 1, "reward": 0.0, "done": false, "error": null}
 [STEP] {"step": 44, "action": 1, "reward": 0.0, "done": false, "error": null}
-[STEP] {"step": 45, "action": 1, "reward": 0.0, "done": true, "error": null}
+[STEP] {"step": 45, "action": 1, "reward": 0.0, "done": false, "error": null}
 [END] {"success": false, "steps": 45, "score": 0.0718, "rewards": [0.85, 0.65, 0.625, 0.2758, 0.5067, 0.3228, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}
-2026-04-08 21:48:50,562 INFO Task 3 complete. Score: 0.0718
-2026-04-08 21:48:50,562 INFO === All tasks complete ===
-2026-04-08 21:48:50,562 INFO   Task 1: score=0.5166
-2026-04-08 21:48:50,562 INFO   Task 2: score=0.2176
-2026-04-08 21:48:50,562 INFO   Task 3: score=0.0718
+2026-04-08 21:55:52,653 INFO Task 3 complete. Score: 0.0718
+2026-04-08 21:55:52,653 INFO === All tasks complete ===
+2026-04-08 21:55:52,654 INFO   Task 1: score=0.5166
+2026-04-08 21:55:52,654 INFO   Task 2: score=0.2176
+2026-04-08 21:55:52,654 INFO   Task 3: score=0.0718
 
 === Run summary ===
 exit_code=0
-wall_seconds=1.522
+wall_seconds=144.013
 
-=== Stopping server ===

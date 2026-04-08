@@ -1,4 +1,5 @@
 import random
+import math
 from collections import deque
 from .intersection import Intersection
 from .vehicle import Vehicle
@@ -28,18 +29,24 @@ class TrafficSimulator:
         self.grid = [[Intersection() for _ in range(self.size)] for _ in range(self.size)]
         self.step_count = 0
         self.max_steps = max_steps
-        self.max_steps = max_steps
         self.completed_trips = 0
         return self.get_state()
 
     def step(self, actions):
-        total_reward = 0
         outgoing = []
         step_completed = 0
-        
-        info_wait, info_fuel, info_cars, info_max_wait, info_e_delay = 0, 0, 0, 0, 0
-        
-        info_wait, info_fuel, info_cars, info_max_wait, info_e_delay = 0, 0, 0, 0, 0
+        moved_total = 0
+
+        # Aggregate info for StepInfo
+        info_wait = 0.0
+        info_fuel = 0.0
+        info_cars = 0
+        info_max_wait = 0.0
+        info_emergency_delay = 0.0  # max emergency wait (not a summed penalty)
+
+        # Reward is computed as an average across intersections then mapped to [0,1]
+        raw_sum = 0.0
+        n_inters = self.size * self.size
 
         for i in range(self.size):
             for j in range(self.size):
@@ -63,39 +70,60 @@ class TrafficSimulator:
 
                 # 3. Process & Movement
                 moved = intersection.process_signal()
+                moved_total += len(moved)
                 for d, v in moved:
                     outgoing.append((i, j, d, v))
 
                 # 4. Metrics & Reward Calculation
                 intersection.update_waiting()
-                
-                t_wait, t_fuel, t_cars, m_wait, e_penalty = 0, 0, 0, 0, 0
+
+                t_cars = 0
+                sum_wait = 0.0
+                sum_fuel = 0.0
+                local_max_wait = 0.0
+                local_emergency_max_wait = 0.0
+
                 for lane in intersection.lanes.values():
                     for v in lane:
-                        if v.wait_time > 2:
-                            t_wait += v.wait_time
-                            t_fuel += v.fuel_consumed
-                        if v.wait_time > 2:
-                            t_wait += v.wait_time
-                            t_fuel += v.fuel_consumed
                         t_cars += 1
-                        m_wait = max(m_wait, v.wait_time)
-                        if v.is_emergency: e_penalty += v.wait_time * 0.5
+                        sum_wait += float(v.wait_time)
+                        sum_fuel += float(v.fuel_consumed)
+                        if v.wait_time > local_max_wait:
+                            local_max_wait = float(v.wait_time)
+                        if v.is_emergency and v.wait_time > local_emergency_max_wait:
+                            local_emergency_max_wait = float(v.wait_time)
 
-                den = t_cars + 1
-                total_reward += (len(moved) / den) - (t_wait / den) - (t_fuel / den) - (e_penalty / den)
-                
-                info_wait += t_wait
-                info_fuel += t_fuel
+                # Aggregate StepInfo-style metrics
                 info_cars += t_cars
-                info_max_wait = max(info_max_wait, m_wait)
-                info_e_delay += e_penalty
-                
-                info_wait += t_wait
-                info_fuel += t_fuel
-                info_cars += t_cars
-                info_max_wait = max(info_max_wait, m_wait)
-                info_e_delay += e_penalty
+                info_wait += sum_wait
+                info_fuel += sum_fuel
+                info_max_wait = max(info_max_wait, local_max_wait)
+                info_emergency_delay = max(info_emergency_delay, local_emergency_max_wait)
+
+                # Reward shaping (avoid huge negative sums that clip to 0)
+                # - Throughput: fraction of vehicles that moved this step (bounded)
+                # - Penalties: normalized averages, capped to [0,1]
+                denom = t_cars + len(moved) + 1
+                moved_ratio = len(moved) / denom
+
+                if t_cars > 0:
+                    avg_wait = sum_wait / t_cars
+                    avg_fuel = sum_fuel / t_cars
+                else:
+                    avg_wait = 0.0
+                    avg_fuel = 0.0
+
+                # Typical ranges: avg_wait tens of steps; fuel grows ~0.1/step
+                wait_norm = min(1.0, avg_wait / 30.0)
+                fuel_norm = min(1.0, avg_fuel / 3.0)
+                emergency_norm = min(1.0, local_emergency_max_wait / 30.0)
+
+                raw_sum += (
+                    moved_ratio
+                    - 0.35 * wait_norm
+                    - 0.10 * fuel_norm
+                    - 0.25 * emergency_norm
+                )
 
         # 5. Global Movement Logic
         for i, j, d, v in outgoing:
@@ -107,36 +135,24 @@ class TrafficSimulator:
                 step_completed += 1
                 self.completed_trips += 1
 
-        total_reward += step_completed * 0.5 # Throughput bonus
-        
-        # Normalize step reward to fit OpenEnv specification [0.0, 1.0]
-        step_reward = max(0.0, min(1.0, 0.5 + (total_reward / 20.0)))
-        
+        # Add a small bounded bonus for trips that exit the grid (helps sparse cases)
+        raw_avg = (raw_sum / max(1, n_inters)) + (0.10 * (step_completed / max(1, n_inters)))
+
+        # Map to (0,1) smoothly so values don't collapse to exactly 0
+        step_reward = 1.0 / (1.0 + math.exp(-3.0 * raw_avg))
+
         info_dict = {
-            "cars_passed": step_completed,
-            "total_cars": info_cars,
+            # Use moved vehicles as "cars_passed" so throughput isn't zero when nothing exits the grid.
+            "cars_passed": int(moved_total),
+            "total_cars": int(info_cars),
             "total_wait": float(info_wait),
             "total_fuel": float(info_fuel),
             "max_wait": float(info_max_wait),
-            "emergency_delay": float(info_e_delay)
-        }
-        
-        
-        # Normalize step reward to fit OpenEnv specification [0.0, 1.0]
-        step_reward = max(0.0, min(1.0, 0.5 + (total_reward / 20.0)))
-        
-        info_dict = {
-            "cars_passed": step_completed,
-            "total_cars": info_cars,
-            "total_wait": float(info_wait),
-            "total_fuel": float(info_fuel),
-            "max_wait": float(info_max_wait),
-            "emergency_delay": float(info_e_delay)
+            "emergency_delay": float(info_emergency_delay),
         }
         
         self.step_count += 1
-        return self.get_state(), step_reward, (self.step_count >= self.max_steps), info_dict
-        return self.get_state(), step_reward, (self.step_count >= self.max_steps), info_dict
+        return self.get_state(), float(step_reward), (self.step_count >= self.max_steps), info_dict
 
     def get_state(self):
         state = {}
@@ -154,10 +170,6 @@ class TrafficSimulator:
         return state
 
     def get_score(self, total_reward):
-        # Professional 0-1 Normalization based on sum of 0-1 step rewards
-        if self.step_count == 0:
-            return 0.0
-        return max(0.0, min(1.0, total_reward / self.step_count))
         # Professional 0-1 Normalization based on sum of 0-1 step rewards
         if self.step_count == 0:
             return 0.0
