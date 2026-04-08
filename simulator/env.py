@@ -16,17 +16,18 @@ class TrafficSimulator:
 
         self.grid = [[Intersection() for _ in range(self.size)] for _ in range(self.size)]
         self.step_count = 0
-        self.max_steps = 50
+        self.max_steps = 100
         self.completed_trips = 0
 
     def set_seed(self, seed):
         self.base_seed = seed
         random.seed(seed)
 
-    def reset(self):
+    def reset(self, max_steps=100):
         self.set_seed(self.base_seed)
         self.grid = [[Intersection() for _ in range(self.size)] for _ in range(self.size)]
         self.step_count = 0
+        self.max_steps = max_steps
         self.completed_trips = 0
         return self.get_state()
 

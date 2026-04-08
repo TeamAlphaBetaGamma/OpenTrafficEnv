@@ -1,31 +1,37 @@
 from models import StepInfo
 
-FAIRNESS_THRESHOLD: float = 20.0   # steps. Match this with policy.py constant
-EMERGENCY_PENALTY_PER_STEP: float = 0.05  # penalty per step an emergency car is blocked
-
+FAIRNESS_THRESHOLD: float = 20.0   # steps
+EMERGENCY_PENALTY_PER_STEP: float = 0.05  # penalty per step
 
 def compute_reward(info: StepInfo) -> float:
     """
-    Compute normalized reward from step info.
+    Compute normalized reward from step info with capped penalties.
     """
+    # Use a safety denominator
     total_cars_safe = info.total_cars + 1
 
-    throughput_bonus   = info.cars_passed / total_cars_safe
-    wait_penalty       = info.total_wait / total_cars_safe
-    fuel_penalty       = info.total_fuel / total_cars_safe
-    fairness_penalty   = info.max_wait / FAIRNESS_THRESHOLD
-    emergency_penalty  = info.emergency_delay * EMERGENCY_PENALTY_PER_STEP
+    # 1. Throughput is the primary goal (Positive)
+    throughput_bonus = info.cars_passed / total_cars_safe
+    
+    # 2. Penalties (Negative) - Normalized to 0.0 - 1.0 range
+    wait_penalty      = min(1.0, info.total_wait / (total_cars_safe * 10)) # Scale by 10 for sensitivity
+    fuel_penalty      = min(1.0, info.total_fuel / (total_cars_safe * 2))  # Fuel is already 0.1 per step
+    
+    # FIX: Cap the fairness penalty so it doesn't overwhelm the score
+    fairness_penalty   = min(1.0, info.max_wait / FAIRNESS_THRESHOLD)
+    
+    # Emergency vehicles are high priority
+    emergency_penalty  = min(1.0, info.emergency_delay * EMERGENCY_PENALTY_PER_STEP)
 
-    raw = throughput_bonus - wait_penalty - fuel_penalty - fairness_penalty - emergency_penalty
+    # 3. Combine with an offset to keep the agent motivated
+    # We add 0.5 as a baseline 'neutral' score
+    raw = 0.5 + throughput_bonus - (0.1 * wait_penalty) - (0.1 * fuel_penalty) - (0.2 * fairness_penalty) - (0.3 * emergency_penalty)
 
-    # valid range
+    # Return strictly in [0.0, 1.0]
     return float(max(0.0, min(1.0, raw)))
 
-
 def compute_episode_score(rewards: list[float]) -> float:
-    """
-    Aggregate per-step rewards into an episode score.
-    """
+    """Average reward across all steps."""
     if not rewards:
         return 0.0
     return float(sum(rewards) / len(rewards))
