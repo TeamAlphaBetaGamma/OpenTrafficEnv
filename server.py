@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Optional
 
-from fastapi import FastAPI, HTTPException
+from fastapi import Body, FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 from models import (
@@ -118,7 +118,7 @@ def _build_global_state(env: TrafficSimulator, task_id: int) -> GlobalState:
 
 
 @app.post("/reset", response_model=ResetResponse)
-def reset(req: ResetRequest) -> ResetResponse:
+def reset(req: ResetRequest = Body(default_factory=ResetRequest)) -> ResetResponse:
     global _env, _task_id
 
     _task_id = req.task_id
@@ -133,7 +133,7 @@ def reset(req: ResetRequest) -> ResetResponse:
 
 
 @app.post("/step", response_model=StepResult)
-def step(req: StepRequest) -> StepResult:
+def step(req: StepRequest = Body(default_factory=StepRequest)) -> StepResult:
     env = _require_env()
 
     # Convert actions list -> simulator dict ("row,col" -> phase)
