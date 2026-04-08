@@ -1,0 +1,115 @@
+env:
+  name: OpenTrafficEnv
+  description: "Multi-agent traffic signal control environment exposed via HTTP API (FastAPI)."
+  base_url: https://sadhana14-alphabetagamma.hf.space/
+  endpoints:
+    ping:
+      method: GET
+      path: /ping
+      returns: "{status: ok}"
+    reset:
+      method: POST
+      path: /reset
+      body_schema: ResetRequest
+      returns: ResetResponse
+    step:
+      method: POST
+      path: /step
+      body_schema: StepRequest
+      returns: StepResult
+    state:
+      method: GET
+      path: /state
+      returns: GlobalState
+
+api_models:
+  # Pydantic models in models.py and server.py
+  ResetRequest:
+    type: object
+    fields:
+      task_id: {type: int, allowed: [1, 2, 3]}
+      seed: {type: int, optional: true}
+  TrafficAction:
+    type: object
+    fields:
+      intersection_id: {type: int, min: 0}
+      phase: {type: int, allowed: [0, 1]}
+  StepRequest:
+    type: object
+    fields:
+      actions: {type: array, items: TrafficAction}
+  GlobalState:
+    type: object
+    fields:
+      intersections: {type: array, items: IntersectionState}
+      step_number: {type: int, min: 0}
+      task_id: {type: int, allowed: [1, 2, 3]}
+      done: {type: bool}
+  IntersectionState:
+    type: object
+    fields:
+      intersection_id: {type: int}
+      north: {type: LaneState}
+      south: {type: LaneState}
+      east: {type: LaneState}
+      west: {type: LaneState}
+      current_phase: {type: int, allowed: [0, 1]}
+      phase_duration: {type: int, min: 0}
+      max_wait: {type: float, min: 0}
+      upstream_hint: {type: int, optional: true, allowed: [0, 1]}
+  LaneState:
+    type: object
+    fields:
+      queue_length: {type: int, min: 0}
+      cumulative_wait: {type: float, min: 0}
+      emergency_flag: {type: bool}
+      fuel_consumed: {type: float, min: 0}
+  StepInfo:
+    type: object
+    fields:
+      cars_passed: {type: int, min: 0}
+      total_cars: {type: int, min: 0}
+      total_wait: {type: float, min: 0}
+      total_fuel: {type: float, min: 0}
+      max_wait: {type: float, min: 0}
+      emergency_delay: {type: float, min: 0}
+  StepResult:
+    type: object
+    fields:
+      observation: {type: GlobalState}
+      reward: {type: float, range: [0.0, 1.0]}
+      done: {type: bool}
+      info: {type: StepInfo}
+
+action_space:
+  name: phase
+  type: discrete
+  values:
+    0: "North-South green"
+    1: "East-West green"
+
+reward:
+  range: [0.0, 1.0]
+  description: "Per-step reward returned by the simulator; includes throughput bonus and penalties for waiting/fuel/emergency delay."
+  step_signal: true
+  success_criteria: "Episode score is average per-step reward (0.0-1.0)."
+
+tasks:
+  - id: 1
+    name: easy
+    difficulty: low
+    grid_size: 1
+    max_steps: 25
+    notes: "Low traffic density."
+  - id: 2
+    name: medium
+    difficulty: medium
+    grid_size: 2
+    max_steps: 35
+    notes: "Moderate traffic density."
+  - id: 3
+    name: hard
+    difficulty: high
+    grid_size: 3
+    max_steps: 45
+    notes: "High traffic density with rush-hour window."
