@@ -11,12 +11,18 @@ FAIRNESS_THRESHOLD: float = 20.0 # If any vehicle waits this many steps, force p
 logger = logging.getLogger(__name__)
 
 
+def _env_flag_true(name: str) -> bool:
+    v = os.environ.get(name, "").strip().lower()
+    return v in {"1", "true", "yes", "y", "on"}
+
+
 # ── OpenAI client (initialized from env vars) ─────────────────────────────────
 def _get_openai_client() -> OpenAI:
     """Build the OpenAI client using env variables."""
+    api_key = os.environ.get("OPENAI_API_KEY") or os.environ.get("HF_TOKEN", "")
     return OpenAI(
         base_url=os.environ.get("API_BASE_URL", "https://api.openai.com/v1"),
-        api_key=os.environ.get("HF_TOKEN", ""),
+        api_key=api_key,
     )
 
 MODEL_NAME: str = os.environ.get("MODEL_NAME", "gpt-4o-mini")
@@ -87,7 +93,8 @@ def decide_phase(state: IntersectionState, client: OpenAI | None = None) -> Traf
     """
     Apply the hybrid decision waterfall to decide a traffic phase.
     """
-    if client is None:
+    llm_disabled = _env_flag_true("DISABLE_LLM")
+    if client is None and not llm_disabled:
         client = _get_openai_client()
 
     current = state.current_phase
@@ -117,9 +124,10 @@ def decide_phase(state: IntersectionState, client: OpenAI | None = None) -> Traf
         return TrafficAction(intersection_id=state.intersection_id, phase=forced_phase)
 
     # ── Rule 4: LLM reasoning ─────────────────────────────────────────────────
-    llm_phase = _llm_decide(state, client)
-    if llm_phase is not None:
-        return TrafficAction(intersection_id=state.intersection_id, phase=llm_phase)
+    if not llm_disabled:
+        llm_phase = _llm_decide(state, client)
+        if llm_phase is not None:
+            return TrafficAction(intersection_id=state.intersection_id, phase=llm_phase)
 
     # ── Rule 5: Greedy fallback ───────────────────────────────────────────────
     greedy_phase = _greedy_decide(state)

@@ -1,2 +1,7 @@
 __pycache__/
 *.pyc
+
+# Local secrets
+.env
+.env.*
+*.env
