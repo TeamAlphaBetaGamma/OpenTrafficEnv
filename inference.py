@@ -27,17 +27,17 @@ ENV_BASE_URL: str = os.environ.get("ENV_BASE_URL", "http://localhost:7860")
 TASK_CONFIG = {
     1: {
         "description": "1x1 grid, low density (P=0.2), no emergencies",
-        "max_steps": 100,
+        "max_steps": 25,
         "seed": 42,
     },
     2: {
         "description": "2x2 grid, moderate density (P=0.4), 1 emergency vehicle",
-        "max_steps": 150,
+        "max_steps": 35,
         "seed": 42,
     },
     3: {
         "description": "3x3 grid, high density (P=0.7), burst traffic, multiple emergencies",
-        "max_steps": 200,
+        "max_steps": 45,
         "seed": 42,
     },
 }

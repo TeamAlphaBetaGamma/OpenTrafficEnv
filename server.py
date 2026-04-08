@@ -60,7 +60,7 @@ def _task_id_to_name(task_id: int) -> str:
 
 def _max_steps_for_task(task_id: int) -> int:
     # Keep in sync with inference.py TASK_CONFIG
-    return {1: 100, 2: 150, 3: 200}.get(task_id, 100)
+    return {1: 25, 2: 35, 3: 45}.get(task_id, 25)
 
 
 def _require_env() -> TrafficSimulator:

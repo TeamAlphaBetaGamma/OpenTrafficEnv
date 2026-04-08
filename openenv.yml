@@ -99,17 +99,17 @@ tasks:
     name: easy
     difficulty: low
     grid_size: 1
-    max_steps: 100
+    max_steps: 25
     notes: "Low traffic density."
   - id: 2
     name: medium
     difficulty: medium
     grid_size: 2
-    max_steps: 150
+    max_steps: 35
     notes: "Moderate traffic density."
   - id: 3
     name: hard
     difficulty: high
     grid_size: 3
-    max_steps: 200
+    max_steps: 45
     notes: "High traffic density with rush-hour window."

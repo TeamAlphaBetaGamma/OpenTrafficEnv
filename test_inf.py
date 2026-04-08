@@ -107,7 +107,7 @@ def test_log_format():
 
     start_line = log_start(1, "Test task")
     step_line = log_step(1, 0, 0.75, False)
-    end_line = log_end(True, 100, 0.75, [0.75])
+    end_line = log_end(True, 25, 0.75, [0.75])
 
     assert start_line.startswith("[START] {"), f"Bad START format: {start_line}"
     assert step_line.startswith("[STEP] {"), f"Bad STEP format: {step_line}"
