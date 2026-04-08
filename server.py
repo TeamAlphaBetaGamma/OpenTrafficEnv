@@ -45,6 +45,11 @@ def health() -> dict:
     return {"status": "ok"}
 
 
+@app.get("/ping")
+def ping() -> dict:
+    return {"status": "ok"}
+
+
 _env: Optional[TrafficSimulator] = None
 _task_id: int = 1
 

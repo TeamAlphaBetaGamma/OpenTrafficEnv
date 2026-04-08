@@ -1,0 +1,824 @@
+=== OpenTrafficEnv Run Log ===
+started_at_utc=2026-04-08T16:03:33.920703+00:00
+ENV_BASE_URL=http://127.0.0.1:7860
+DISABLE_LLM=0
+python=/Users/sadhanatp/Downloads/MetaAI/OpenTrafficEnv/.venv/bin/python
+
+=== Starting server (uvicorn) ===
+=== Server ready ===
+
+=== Running inference.py ===
+2026-04-08 21:33:34,847 INFO === OpenTrafficEnv Inference Script Starting ===
+2026-04-08 21:33:34,847 INFO ENV_BASE_URL: http://127.0.0.1:7860
+2026-04-08 21:33:34,847 INFO MODEL_NAME: not set
+[START] {"task": "Task 1", "env": "OpenTrafficEnv", "model": "gpt-4o-mini"}
+2026-04-08 21:33:34,877 INFO Calling reset: task_id=1, seed=42
+2026-04-08 21:33:34,881 INFO Task 1 reset. Intersections: 1
+[STEP] {"step": 1, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 2, "action": 0, "reward": 0.575, "done": false, "error": null}
+[STEP] {"step": 3, "action": 0, "reward": 0.575, "done": false, "error": null}
+2026-04-08 21:33:35,649 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:35,651 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 4, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:35,982 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:35,982 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 5, "action": 0, "reward": 0.575, "done": false, "error": null}
+2026-04-08 21:33:36,345 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:36,346 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 6, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:36,699 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:36,700 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 7, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:37,101 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:37,103 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 8, "action": 1, "reward": 0.575, "done": false, "error": null}
+[STEP] {"step": 9, "action": 1, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 10, "action": 1, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:37,536 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:37,538 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 11, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 12, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 13, "action": 0, "reward": 0.39, "done": false, "error": null}
+2026-04-08 21:33:37,944 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:37,945 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 14, "action": 1, "reward": 0.725, "done": false, "error": null}
+[STEP] {"step": 15, "action": 1, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 16, "action": 1, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:38,307 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:38,309 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 17, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 18, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 19, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:38,655 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:38,656 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 20, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:38,994 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:38,996 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 21, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:39,378 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:39,379 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 22, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:39,722 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:39,724 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 23, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:40,094 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:40,096 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 24, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:40,458 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:40,459 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 25, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:40,778 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:40,779 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 26, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:41,098 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:41,099 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 27, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:41,532 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:41,534 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 28, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:41,937 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:41,938 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 29, "action": 1, "reward": 0.575, "done": false, "error": null}
+[STEP] {"step": 30, "action": 1, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 31, "action": 1, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:42,347 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:42,347 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 32, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 33, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 34, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:42,757 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:42,757 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 35, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:43,166 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:43,167 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 36, "action": 1, "reward": 0.575, "done": false, "error": null}
+[STEP] {"step": 37, "action": 1, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 38, "action": 1, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:43,575 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:43,576 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 39, "action": 0, "reward": 0.65, "done": false, "error": null}
+[STEP] {"step": 40, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 41, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:43,913 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:43,913 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 42, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:44,266 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:44,267 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 43, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:44,627 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:44,628 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 44, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:45,172 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:45,173 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 45, "action": 1, "reward": 0.65, "done": false, "error": null}
+[STEP] {"step": 46, "action": 1, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 47, "action": 1, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:45,502 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:45,504 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 48, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 49, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 50, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:45,931 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:45,932 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 51, "action": 1, "reward": 0.575, "done": false, "error": null}
+[STEP] {"step": 52, "action": 1, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 53, "action": 1, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:46,343 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:46,344 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 54, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 55, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 56, "action": 0, "reward": 0.575, "done": false, "error": null}
+2026-04-08 21:33:46,675 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:46,676 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 57, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:47,058 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:47,059 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 58, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:47,468 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:47,469 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 59, "action": 1, "reward": 0.575, "done": false, "error": null}
+[STEP] {"step": 60, "action": 1, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 61, "action": 1, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:47,877 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:47,879 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 62, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 63, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 64, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:48,286 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:48,287 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 65, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:48,647 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:48,648 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 66, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:49,110 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:49,111 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 67, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:49,515 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:49,517 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 68, "action": 1, "reward": 0.575, "done": false, "error": null}
+[STEP] {"step": 69, "action": 1, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 70, "action": 1, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:49,924 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:49,925 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 71, "action": 0, "reward": 0.575, "done": false, "error": null}
+[STEP] {"step": 72, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 73, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:50,334 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:50,335 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 74, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:50,677 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:50,678 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 75, "action": 0, "reward": 0.575, "done": false, "error": null}
+2026-04-08 21:33:51,051 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:51,052 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 76, "action": 0, "reward": 0.575, "done": false, "error": null}
+2026-04-08 21:33:51,463 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:51,465 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 77, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:51,871 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:51,873 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 78, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:52,280 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:52,281 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 79, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:52,689 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:52,690 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 80, "action": 1, "reward": 0.575, "done": false, "error": null}
+[STEP] {"step": 81, "action": 1, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 82, "action": 1, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:53,099 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:53,099 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 83, "action": 0, "reward": 0.575, "done": false, "error": null}
+[STEP] {"step": 84, "action": 0, "reward": 0.5, "done": false, "error": null}
+[STEP] {"step": 85, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:53,510 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:53,511 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 86, "action": 0, "reward": 0.575, "done": false, "error": null}
+2026-04-08 21:33:53,919 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:53,921 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 87, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:54,263 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:54,264 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 88, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:54,593 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:54,595 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 89, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:54,929 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:54,930 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 90, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:55,254 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:55,256 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 91, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:55,605 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:55,606 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 92, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:55,949 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:55,951 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 93, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:56,281 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:56,282 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 94, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:56,658 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:56,659 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 95, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:57,199 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:57,200 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 96, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:57,606 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:57,607 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 97, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:58,015 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:58,016 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 98, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:58,344 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:58,346 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 99, "action": 0, "reward": 0.5, "done": false, "error": null}
+2026-04-08 21:33:58,685 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:58,687 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 100, "action": 1, "reward": 0.55, "done": true, "error": null}
+[END] {"success": true, "steps": 100, "score": 0.5166, "rewards": [0.5, 0.575, 0.575, 0.5, 0.575, 0.5, 0.5, 0.575, 0.5, 0.5, 0.5, 0.5, 0.39, 0.725, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.575, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.575, 0.5, 0.5, 0.65, 0.5, 0.5, 0.5, 0.5, 0.5, 0.65, 0.5, 0.5, 0.5, 0.5, 0.5, 0.575, 0.5, 0.5, 0.5, 0.5, 0.575, 0.5, 0.5, 0.575, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.575, 0.5, 0.5, 0.575, 0.5, 0.5, 0.5, 0.575, 0.575, 0.5, 0.5, 0.5, 0.575, 0.5, 0.5, 0.575, 0.5, 0.5, 0.575, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.55]}
+2026-04-08 21:33:58,695 INFO Task 1 complete. Score: 0.5166
+[START] {"task": "Task 2", "env": "OpenTrafficEnv", "model": "gpt-4o-mini"}
+2026-04-08 21:33:58,695 INFO Calling reset: task_id=2, seed=42
+2026-04-08 21:33:58,699 INFO Task 2 reset. Intersections: 4
+[STEP] {"step": 1, "action": 0, "reward": 0.6, "done": false, "error": null}
+[STEP] {"step": 2, "action": 0, "reward": 0.7, "done": false, "error": null}
+[STEP] {"step": 3, "action": 0, "reward": 0.5833, "done": false, "error": null}
+2026-04-08 21:33:59,019 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:59,019 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:33:59,407 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:59,408 WARNING LLM call failed for intersection 1: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:33:59,755 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:33:59,757 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:00,164 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:00,165 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 4, "action": 0, "reward": 0.85, "done": false, "error": null}
+2026-04-08 21:34:00,502 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:00,503 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:00,859 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:00,860 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 5, "action": 0, "reward": 0.675, "done": false, "error": null}
+2026-04-08 21:34:01,191 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:01,192 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 6, "action": 0, "reward": 0.7417, "done": false, "error": null}
+2026-04-08 21:34:01,538 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:01,539 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:01,977 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:01,981 WARNING LLM call failed for intersection 1: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 7, "action": 0, "reward": 0.7, "done": false, "error": null}
+2026-04-08 21:34:02,314 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:02,316 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:02,727 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:02,728 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 8, "action": 0, "reward": 0.7625, "done": false, "error": null}
+2026-04-08 21:34:03,069 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:03,071 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 9, "action": 0, "reward": 0.252, "done": false, "error": null}
+2026-04-08 21:34:03,387 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:03,388 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:03,715 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:03,716 WARNING LLM call failed for intersection 1: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 10, "action": 0, "reward": 0.4933, "done": false, "error": null}
+2026-04-08 21:34:04,057 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:04,057 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:04,416 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:04,417 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 11, "action": 1, "reward": 0.7717, "done": false, "error": null}
+[STEP] {"step": 12, "action": 1, "reward": 0.12, "done": false, "error": null}
+2026-04-08 21:34:04,744 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:04,745 WARNING LLM call failed for intersection 1: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:05,462 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:05,464 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 13, "action": 1, "reward": 0.0162, "done": false, "error": null}
+2026-04-08 21:34:05,819 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:05,820 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:06,207 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:06,208 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 14, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 15, "action": 0, "reward": 0.3517, "done": false, "error": null}
+2026-04-08 21:34:06,616 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:06,617 WARNING LLM call failed for intersection 1: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 16, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:07,025 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:07,026 WARNING LLM call failed for intersection 1: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:07,353 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:07,354 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 17, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:07,745 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:07,746 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 18, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 19, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:08,103 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:08,104 WARNING LLM call failed for intersection 1: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:08,440 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:08,442 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 20, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:08,794 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:08,795 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 21, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 22, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:09,122 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:09,123 WARNING LLM call failed for intersection 1: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:09,467 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:09,468 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 23, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:09,822 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:09,823 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:10,201 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:10,202 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 24, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 25, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:10,610 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:10,611 WARNING LLM call failed for intersection 1: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 26, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:10,955 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:10,957 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 27, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:11,327 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:11,328 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 28, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:11,737 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:11,739 WARNING LLM call failed for intersection 1: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 29, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:12,252 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:12,254 WARNING LLM call failed for intersection 1: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 30, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:12,658 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:12,660 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 31, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 32, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 33, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:13,068 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:13,069 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 34, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 35, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 36, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 37, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 38, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:13,423 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:13,424 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 39, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:13,784 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:13,785 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 40, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 41, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 42, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 43, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 44, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 45, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 46, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 47, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 48, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 49, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 50, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 51, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 52, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 53, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 54, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 55, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 56, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 57, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 58, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 59, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 60, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 61, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 62, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 63, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 64, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 65, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 66, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 67, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 68, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 69, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 70, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 71, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 72, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 73, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 74, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 75, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 76, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 77, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 78, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 79, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 80, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 81, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 82, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 83, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 84, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 85, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 86, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 87, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 88, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 89, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 90, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 91, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 92, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 93, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 94, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 95, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 96, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 97, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 98, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 99, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 100, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 101, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 102, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 103, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 104, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 105, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 106, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 107, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 108, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 109, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 110, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 111, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 112, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 113, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 114, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 115, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 116, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 117, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 118, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 119, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 120, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 121, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 122, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 123, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 124, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 125, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 126, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 127, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 128, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 129, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 130, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 131, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 132, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 133, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 134, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 135, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 136, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 137, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 138, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 139, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 140, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 141, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 142, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 143, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 144, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 145, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 146, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 147, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 148, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 149, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 150, "action": 0, "reward": 0.0, "done": true, "error": null}
+[END] {"success": false, "steps": 150, "score": 0.0508, "rewards": [0.6, 0.7, 0.5833, 0.85, 0.675, 0.7417, 0.7, 0.7625, 0.252, 0.4933, 0.7717, 0.12, 0.0162, 0.0, 0.3517, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}
+2026-04-08 21:34:13,993 INFO Task 2 complete. Score: 0.0508
+[START] {"task": "Task 3", "env": "OpenTrafficEnv", "model": "gpt-4o-mini"}
+2026-04-08 21:34:13,993 INFO Calling reset: task_id=3, seed=42
+2026-04-08 21:34:13,995 INFO Task 3 reset. Intersections: 9
+[STEP] {"step": 1, "action": 0, "reward": 0.85, "done": false, "error": null}
+[STEP] {"step": 2, "action": 0, "reward": 0.65, "done": false, "error": null}
+[STEP] {"step": 3, "action": 0, "reward": 0.625, "done": false, "error": null}
+2026-04-08 21:34:14,400 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:14,401 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:14,809 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:14,811 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:15,218 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:15,219 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:15,564 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:15,565 WARNING LLM call failed for intersection 4: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:15,935 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:15,936 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:16,345 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:16,347 WARNING LLM call failed for intersection 6: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 4, "action": 0, "reward": 0.2758, "done": false, "error": null}
+2026-04-08 21:34:16,674 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:16,676 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:17,002 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:17,003 WARNING LLM call failed for intersection 4: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:17,324 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:17,326 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 5, "action": 1, "reward": 0.5067, "done": false, "error": null}
+2026-04-08 21:34:17,684 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:17,685 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 6, "action": 1, "reward": 0.3228, "done": false, "error": null}
+2026-04-08 21:34:18,090 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:18,091 WARNING LLM call failed for intersection 1: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:18,411 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:18,412 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:18,745 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:18,747 WARNING LLM call failed for intersection 7: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:19,073 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:19,074 WARNING LLM call failed for intersection 8: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 7, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:19,522 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:19,523 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:19,928 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:19,930 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:20,338 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:20,339 WARNING LLM call failed for intersection 4: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:20,686 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:20,687 WARNING LLM call failed for intersection 6: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 8, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:21,055 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:21,056 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:21,464 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:21,466 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 9, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:21,873 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:21,874 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:22,283 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:22,283 WARNING LLM call failed for intersection 8: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 10, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:22,693 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:22,695 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:23,103 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:23,104 WARNING LLM call failed for intersection 6: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:23,427 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:23,429 WARNING LLM call failed for intersection 8: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 11, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:23,765 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:23,766 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:24,106 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:24,107 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:24,439 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:24,441 WARNING LLM call failed for intersection 4: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:24,818 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:24,820 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 12, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:25,255 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:25,257 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:25,663 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:25,665 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:26,072 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:26,074 WARNING LLM call failed for intersection 7: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 13, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:26,482 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:26,483 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:26,892 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:26,893 WARNING LLM call failed for intersection 7: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:27,302 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:27,303 WARNING LLM call failed for intersection 8: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 14, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:27,711 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:27,712 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:28,120 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:28,120 WARNING LLM call failed for intersection 6: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:28,529 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:28,530 WARNING LLM call failed for intersection 7: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 15, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:28,867 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:28,868 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:29,246 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:29,246 WARNING LLM call failed for intersection 7: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 16, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:29,656 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:29,656 WARNING LLM call failed for intersection 7: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 17, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:30,018 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:30,020 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:30,343 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:30,345 WARNING LLM call failed for intersection 4: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:30,685 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:30,687 WARNING LLM call failed for intersection 7: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 18, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:31,022 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:31,024 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 19, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:31,370 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:31,371 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:31,949 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:31,950 WARNING LLM call failed for intersection 8: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 20, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:32,319 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:32,320 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:32,653 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:32,654 WARNING LLM call failed for intersection 4: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:33,036 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:33,037 WARNING LLM call failed for intersection 6: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 21, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:33,447 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:33,448 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 22, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:33,855 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:33,856 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:34,264 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:34,265 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 23, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:34,674 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:34,675 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:35,084 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:35,085 WARNING LLM call failed for intersection 7: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 24, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:35,411 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:35,412 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 25, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:35,739 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:35,740 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:36,063 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:36,064 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:36,377 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:36,378 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:36,708 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:36,709 WARNING LLM call failed for intersection 8: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 26, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:37,040 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:37,043 WARNING LLM call failed for intersection 0: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:37,439 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:37,440 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 27, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 28, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:37,849 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:37,850 WARNING LLM call failed for intersection 2: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2026-04-08 21:34:38,258 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:38,260 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 29, "action": 0, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:38,599 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:38,601 WARNING LLM call failed for intersection 5: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 30, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 31, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:38,958 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:38,960 WARNING LLM call failed for intersection 8: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 32, "action": 1, "reward": 0.0, "done": false, "error": null}
+2026-04-08 21:34:39,389 INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-04-08 21:34:39,390 WARNING LLM call failed for intersection 3: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[STEP] {"step": 33, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 34, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 35, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 36, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 37, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 38, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 39, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 40, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 41, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 42, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 43, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 44, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 45, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 46, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 47, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 48, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 49, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 50, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 51, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 52, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 53, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 54, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 55, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 56, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 57, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 58, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 59, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 60, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 61, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 62, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 63, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 64, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 65, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 66, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 67, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 68, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 69, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 70, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 71, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 72, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 73, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 74, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 75, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 76, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 77, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 78, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 79, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 80, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 81, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 82, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 83, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 84, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 85, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 86, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 87, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 88, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 89, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 90, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 91, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 92, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 93, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 94, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 95, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 96, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 97, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 98, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 99, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 100, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 101, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 102, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 103, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 104, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 105, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 106, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 107, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 108, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 109, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 110, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 111, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 112, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 113, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 114, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 115, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 116, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 117, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 118, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 119, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 120, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 121, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 122, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 123, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 124, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 125, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 126, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 127, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 128, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 129, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 130, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 131, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 132, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 133, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 134, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 135, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 136, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 137, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 138, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 139, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 140, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 141, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 142, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 143, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 144, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 145, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 146, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 147, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 148, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 149, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 150, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 151, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 152, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 153, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 154, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 155, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 156, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 157, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 158, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 159, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 160, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 161, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 162, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 163, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 164, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 165, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 166, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 167, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 168, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 169, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 170, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 171, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 172, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 173, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 174, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 175, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 176, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 177, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 178, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 179, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 180, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 181, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 182, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 183, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 184, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 185, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 186, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 187, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 188, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 189, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 190, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 191, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 192, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 193, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 194, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 195, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 196, "action": 0, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 197, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 198, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 199, "action": 1, "reward": 0.0, "done": false, "error": null}
+[STEP] {"step": 200, "action": 0, "reward": 0.0, "done": true, "error": null}
+[END] {"success": false, "steps": 200, "score": 0.0162, "rewards": [0.85, 0.65, 0.625, 0.2758, 0.5067, 0.3228, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}
+2026-04-08 21:34:39,764 INFO Task 3 complete. Score: 0.0162
+2026-04-08 21:34:39,764 INFO === All tasks complete ===
+2026-04-08 21:34:39,764 INFO   Task 1: score=0.5166
+2026-04-08 21:34:39,764 INFO   Task 2: score=0.0508
+2026-04-08 21:34:39,764 INFO   Task 3: score=0.0162
+
+=== Run summary ===
+exit_code=0
+wall_seconds=65.937
+
+=== Stopping server ===

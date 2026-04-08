@@ -12,6 +12,7 @@ from models import (
 )
 from agent.policy import decide_all_phases, _get_openai_client
 from agent.reward import compute_reward, compute_episode_score
+from agent.grader import grade_task
 
 logging.basicConfig(
     level=logging.INFO,
@@ -142,12 +143,11 @@ def run_episode(task_id: int, client: OpenAI) -> dict:
 
     # ── END log ───────────────────────────────────────────────────────────────
     total_reward = sum(rewards)
-    score = compute_episode_score(rewards)
-    success = score >= 0.5  # SUCCESS_SCORE_THRESHOLD
-    log_end(success=success, steps=step, score=score, rewards=rewards)
+    grade = grade_task(task_id, rewards)
+    log_end(success=grade.success, steps=step, score=grade.score, rewards=rewards)
 
-    logger.info(f"Task {task_id} complete. Score: {score:.4f}")
-    return {"task_id": task_id, "total_reward": total_reward, "steps": step, "score": score, "success": success}
+    logger.info(f"Task {task_id} complete. Score: {grade.score:.4f}")
+    return {"task_id": task_id, "total_reward": total_reward, "steps": step, "score": grade.score, "success": grade.success}
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────

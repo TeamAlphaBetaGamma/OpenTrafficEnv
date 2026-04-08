@@ -23,15 +23,17 @@ The Hugging Face Space runs the API server from the Dockerfile.
 - **Reward utilities**: `agent/reward.py` (step reward + episode score)
 - **Client/inference**: `inference.py` (runs tasks 1–3 by calling the server)
 - **Runtime smoke test**: `validate_runtime.py` (starts server locally and runs `inference.py` with LLM disabled)
+- **Task grader**: `agent/grader.py` (deterministic episode scoring + success threshold)
 
 ## HTTP API
 
 The Space exposes a JSON API on port `7860`.
 
-### `GET /` and `GET /health`
+### `GET /` and `GET /health` and `GET /ping`
 
 - `GET /` returns a small JSON payload listing the available endpoints.
 - `GET /health` returns `{"status":"ok"}` for liveness checks.
+- `GET /ping` returns `{"status":"ok"}` for OpenEnv-style ping checks.
 
 ### `POST /reset`
 
@@ -123,7 +125,8 @@ See `.env.example` for a template.
 
 - `ENV_BASE_URL`: where `inference.py` calls the environment (default `http://localhost:7860`)
 - `DISABLE_LLM`: set to `1` to force the policy to avoid LLM calls
-- `OPENAI_API_KEY`: OpenAI API key (used when LLM is enabled)
+- `HF_TOKEN`: OpenAI API key (checklist-required; used when LLM is enabled)
+- `OPENAI_API_KEY`: supported alias for the same key
 - `API_BASE_URL`: OpenAI-compatible base URL (default `https://api.openai.com/v1`)
 - `MODEL_NAME`: model name string used by the policy client
 - `VALIDATION_TIMEOUT_S`: timeout for `validate_runtime.py` (default `1200`)
