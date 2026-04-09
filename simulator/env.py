@@ -140,6 +140,10 @@ class TrafficSimulator:
 
         # Map to (0,1) smoothly so values don't collapse to exactly 0
         step_reward = 1.0 / (1.0 + math.exp(-3.0 * raw_avg))
+        
+        # Clamp step reward strictly within (0, 1) to satisfy validator requirements
+        eps = 1e-6
+        step_reward = max(eps, min(1.0 - eps, step_reward))
 
         info_dict = {
             # Use moved vehicles as "cars_passed" so throughput isn't zero when nothing exits the grid.
