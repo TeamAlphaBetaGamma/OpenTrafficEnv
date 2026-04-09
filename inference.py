@@ -24,12 +24,7 @@ logger = logging.getLogger(__name__)
 # ── Configuration ─────────────────────────────────────────────────────────────
 ENV_BASE_URL: str = os.environ.get("ENV_BASE_URL", "https://sadhana14-alphabetagamma.hf.space/")
 
-# Pre-submission checklist env vars
-API_BASE_URL: str = os.environ.get("API_BASE_URL", "https://api.openai.com/v1")
 MODEL_NAME: str = os.environ.get("MODEL_NAME", "gpt-4o-mini")
-HF_TOKEN: str = os.environ.get("HF_TOKEN", "")
-# Optional: used only when running from a local Docker image in some harnesses
-LOCAL_IMAGE_NAME: str = os.environ.get("LOCAL_IMAGE_NAME", "")
 
 TASK_CONFIG = {
     1: {
@@ -102,7 +97,7 @@ def env_step(actions: list[TrafficAction]) -> StepResult:
 
 # ── Episode runner ─────────────────────────────────────────────────────────────
 
-def run_episode(task_id: int, client: OpenAI) -> dict:
+def run_episode(task_id: int, client: OpenAI | None) -> dict:
     """
     Run a complete episode for one task.
     """
@@ -171,8 +166,10 @@ def main():
     logger.info(f"ENV_BASE_URL: {ENV_BASE_URL}")
     logger.info(f"MODEL_NAME: {os.environ.get('MODEL_NAME', 'not set')}")
 
-    # Build shared OpenAI client
-    client = _get_openai_client()
+    # Build shared OpenAI client only if LLM is enabled.
+    llm_disabled = os.environ.get("DISABLE_LLM", "").strip().lower() in {"1", "true", "yes", "y", "on"}
+    client: OpenAI | None
+    client = None if llm_disabled else _get_openai_client()
 
     # Run all 3 tasks
     results = []

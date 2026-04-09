@@ -58,12 +58,16 @@ def main() -> int:
     try:
         _wait_for_server(base_url)
 
-        # Run inference against local server, but disable LLM calls so performance is sim-bound.
+        # Run inference against local server.
+        # If API proxy credentials are not present, disable LLM so the smoke test can still run.
         env = {
             **os.environ,
             "ENV_BASE_URL": base_url,
-            "DISABLE_LLM": "1",
         }
+        if "DISABLE_LLM" not in os.environ:
+            has_proxy = bool(os.environ.get("API_BASE_URL")) and bool(os.environ.get("API_KEY"))
+            if not has_proxy:
+                env["DISABLE_LLM"] = "1"
 
         subprocess.run(
             [sys.executable, "inference.py"],
