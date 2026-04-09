@@ -53,70 +53,28 @@ TASK_CONFIG = {
 # ── stdout log helpers ────────────────────────────────────────────────────────
 
 def log_start(task: str, env: str, model: str) -> None:
-    """Emit the [START] marker. Must be called once per episode."""
-    payload = {"task": task, "env": env, "model": model}
-    print(f"[START] {json.dumps(payload)}", flush=True)
-
+    # Rule: [START] task=<task_name> env=<benchmark> model=<model_name>
+    print(f"[START] task={task} env={env} model={model}", flush=True)
 
 def log_step(step: int, action: int, reward: float, done: bool, error: str = None) -> None:
-    """Emit a [STEP] marker. Must be called once per environment step."""
-    # Ensure rounded reward doesn't become exactly 0.0 or 1.0
-    rounded_reward = round(reward, 4)
-    if rounded_reward <= 0.0:
-        rounded_reward = 0.0001
-    elif rounded_reward >= 1.0:
-        rounded_reward = 0.9999
+    # Rule: Format reward to 2 decimal places, done is lowercase boolean
+    # Safety: Ensure reward is strictly (0, 1)
+    safe_reward = max(0.01, min(0.99, reward))
     
-    payload = {
-        "step": step,
-        "action": action,
-        "reward": rounded_reward,
-        "done": done,
-        "error": error
-    }
-    print(f"[STEP] {json.dumps(payload)}", flush=True)
-
+    done_str = "true" if done else "false"
+    error_str = error if error else "null"
+    
+    # We strip parentheses from action to be safe
+    print(f"[STEP] step={step} action={action} reward={safe_reward:.2f} done={done_str} error={error_str}", flush=True)
 
 def log_end(success: bool, steps: int, score: float, rewards: list[float]) -> None:
-    """Emit the [END] marker. Must be called once per episode."""
-    # Validator requires: 0 < score < 1 (not 0.0 / 1.0). Absolute guarantee.
-    score = float(score)
+    # Rule: [END] success=<true|false> steps=<n> rewards=<r1,r2,...,rn>
+    # Safety: Ensure all rewards in the list are strictly (0, 1)
+    protected_rewards = [f"{max(0.01, min(0.99, float(r))):.2f}" for r in rewards]
+    rewards_str = ",".join(protected_rewards)
     
-    # Force into safe range: (0.001, 0.999)
-    if score <= 0.0:
-        score = 0.001
-    elif score >= 1.0:
-        score = 0.999
-    else:
-        # Clamp to safe range even for intermediate values
-        score = max(0.001, min(0.999, score))
-    
-    # Additional safety: round and re-check
-    score = round(score, 4)
-    if score <= 0.0:
-        score = 0.0001
-    elif score >= 1.0:
-        score = 0.9999
-    
-    # Protect rewards: ensure no 0.0 or 1.0 after rounding
-    protected_rewards = []
-    for r in rewards:
-        r = float(r)
-        r = max(0.001, min(0.999, r))
-        r_rounded = round(r, 4)
-        if r_rounded <= 0.0:
-            r_rounded = 0.0001
-        elif r_rounded >= 1.0:
-            r_rounded = 0.9999
-        protected_rewards.append(r_rounded)
-    
-    payload = {
-        "success": success,
-        "steps": steps,
-        "score": score,
-        "rewards": protected_rewards
-    }
-    print(f"[END] {json.dumps(payload)}", flush=True)
+    success_str = "true" if success else "false"
+    print(f"[END] success={success_str} steps={steps} rewards={rewards_str}", flush=True)
 
 
 # ── Environment API calls ─────────────────────────────────────────────────────
@@ -154,7 +112,9 @@ def run_episode(task_id: int, client: OpenAI) -> dict:
     description = config["description"]
 
     # ── START log ─────────────────────────────────────────────────────────────
-    log_start(task=f"Task {task_id}", env="OpenTrafficEnv", model=MODEL_NAME)
+    task_names = {1: "easy", 2: "medium", 3: "hard"}
+    task_name = task_names.get(task_id, f"task-{task_id}")
+    log_start(task=task_name, env="OpenTrafficEnv", model=MODEL_NAME)
 
     # ── Reset the environment ─────────────────────────────────────────────────
     obs: GlobalState = env_reset(task_id, seed)
@@ -184,7 +144,7 @@ def run_episode(task_id: int, client: OpenAI) -> dict:
         primary_action = actions[0].phase if actions else 0
 
         # ── STEP log ──────────────────────────────────────────────────────────
-        log_step(step=step, action=primary_action, reward=reward, done=done, error=None)
+        log_step(step=step, action=primary_action, reward=reward, done=done, error=result.error)
 
     # ── END log ───────────────────────────────────────────────────────────────
     total_reward = sum(rewards)
