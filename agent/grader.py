@@ -24,7 +24,7 @@ def grade_task(task_id: int, rewards: list[float]) -> GradeResult:
     score = float(compute_episode_score(rewards))
     # The submission validator requires scores strictly within (0, 1).
     # Avoid edge cases where the underlying scorer returns 0.0 or 1.0.
-    eps = 1e-6
+    eps = 1e-4
     if score <= 0.0:
         score = eps
     elif score >= 1.0:

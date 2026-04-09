@@ -2,7 +2,7 @@ from models import StepInfo
 
 FAIRNESS_THRESHOLD: float = 20.0   # steps
 EMERGENCY_PENALTY_PER_STEP: float = 0.05  # penalty per step
-_EPS: float = 1e-6  # keeps rewards strictly inside (0.0, 1.0)
+_EPS: float = 1e-4  # keeps rewards strictly inside (0.0, 1.0)
 
 def compute_reward(info: StepInfo) -> float:
     """
