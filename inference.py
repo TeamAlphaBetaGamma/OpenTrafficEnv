@@ -60,10 +60,17 @@ def log_start(task: str, env: str, model: str) -> None:
 
 def log_step(step: int, action: int, reward: float, done: bool, error: str = None) -> None:
     """Emit a [STEP] marker. Must be called once per environment step."""
+    # Ensure rounded reward doesn't become exactly 0.0 or 1.0
+    rounded_reward = round(reward, 4)
+    if rounded_reward <= 0.0:
+        rounded_reward = 0.0001
+    elif rounded_reward >= 1.0:
+        rounded_reward = 0.9999
+    
     payload = {
         "step": step,
         "action": action,
-        "reward": round(reward, 4),
+        "reward": rounded_reward,
         "done": done,
         "error": error
     }
@@ -73,17 +80,35 @@ def log_step(step: int, action: int, reward: float, done: bool, error: str = Non
 def log_end(success: bool, steps: int, score: float, rewards: list[float]) -> None:
     """Emit the [END] marker. Must be called once per episode."""
     # Validator requires: 0 < score < 1 (not 0.0 / 1.0). Also avoid rounding to 0.0.
-    eps = 0.1
+    eps = 0.001
     score = float(score)
     if score <= 0.0:
         score = eps
     elif score >= 1.0:
         score = 1.0 - eps
+    
+    # Round for display but ensure still valid
+    score_rounded = round(score, 4)
+    if score_rounded <= 0.0:
+        score_rounded = 0.0001
+    elif score_rounded >= 1.0:
+        score_rounded = 0.9999
+    
+    # Protect rewards: ensure no 0.0 or 1.0 after rounding
+    protected_rewards = []
+    for r in rewards:
+        r_rounded = round(r, 4)
+        if r_rounded <= 0.0:
+            r_rounded = 0.0001
+        elif r_rounded >= 1.0:
+            r_rounded = 0.9999
+        protected_rewards.append(r_rounded)
+    
     payload = {
         "success": success,
         "steps": steps,
-        "score": score,
-        "rewards": [round(r, 4) for r in rewards]
+        "score": score_rounded,
+        "rewards": protected_rewards
     }
     print(f"[END] {json.dumps(payload)}", flush=True)
 
@@ -161,7 +186,15 @@ def run_episode(task_id: int, client: OpenAI) -> dict:
     log_end(success=grade.success, steps=step, score=grade.score, rewards=rewards)
 
     logger.info(f"Task {task_id} complete. Score: {grade.score:.4f}")
-    return {"task_id": task_id, "total_reward": total_reward, "steps": step, "score": grade.score, "success": grade.success}
+    
+    # Ensure returned score is also valid
+    final_score = grade.score
+    if final_score <= 0.0:
+        final_score = 0.001
+    elif final_score >= 1.0:
+        final_score = 0.999
+    
+    return {"task_id": task_id, "total_reward": total_reward, "steps": step, "score": final_score, "success": grade.success}
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -183,7 +216,7 @@ def main():
         except Exception as e:
             logger.error(f"Task {task_id} failed: {e}", exc_info=True)
             # Still emit END so the parser doesn't hang
-            log_end(success=False, steps=0, score=0.1, rewards=[])
+            log_end(success=False, steps=0, score=0.001, rewards=[])
 
     logger.info("=== All tasks complete ===")
     for r in results:

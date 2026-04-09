@@ -142,7 +142,7 @@ class TrafficSimulator:
         step_reward = 1.0 / (1.0 + math.exp(-3.0 * raw_avg))
         
         # Clamp step reward strictly within (0, 1) to satisfy validator requirements
-        eps = 0.1
+        eps = 0.001
         step_reward = max(eps, min(1.0 - eps, step_reward))
 
         info_dict = {
@@ -175,7 +175,7 @@ class TrafficSimulator:
 
     def get_score(self, total_reward):
         # Professional 0-1 Normalization based on sum of 0-1 step rewards
-        eps = 0.1
+        eps = 0.001
         if self.step_count == 0:
             return eps
         return max(eps, min(1.0 - eps, total_reward / self.step_count))
