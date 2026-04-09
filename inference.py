@@ -64,7 +64,7 @@ def log_step(step: int, action: int, reward: float, done: bool, error: str = Non
 
 def log_end(success: bool, steps: int, score: float, rewards: list[float]) -> None:
     # Rule: [END] success=<true|false> steps=<n> rewards=<r1,r2,...,rn>
-    # Safety: Ensure all rewards in the list are strictly (0, 1)
+    # Safety: Ensure all rewards are strictly inside (0, 1)
     protected_rewards = [f"{max(0.01, min(0.99, float(r))):.2f}" for r in rewards]
     rewards_str = ",".join(protected_rewards)
     
@@ -180,7 +180,7 @@ def main():
         except Exception as e:
             logger.error(f"Task {task_id} failed: {e}", exc_info=True)
             # Still emit END so the parser doesn't hang
-            log_end(success=False, steps=0, score=0.001, rewards=[])
+            log_end(success=False, steps=0, score=0.001, rewards=[0.001])
 
     logger.info("=== All tasks complete ===")
     for r in results:
