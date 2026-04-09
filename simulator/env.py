@@ -171,6 +171,7 @@ class TrafficSimulator:
 
     def get_score(self, total_reward):
         # Professional 0-1 Normalization based on sum of 0-1 step rewards
+        eps = 1e-6
         if self.step_count == 0:
-            return 0.0
-        return max(0.0, min(1.0, total_reward / self.step_count))
+            return eps
+        return max(eps, min(1.0 - eps, total_reward / self.step_count))
