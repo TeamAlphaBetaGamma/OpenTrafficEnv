@@ -34,4 +34,10 @@ def compute_episode_score(rewards: list[float]) -> float:
     """Average reward across all steps."""
     if not rewards:
         return _EPS
-    return float(max(_EPS, min(1.0 - _EPS, sum(rewards) / len(rewards))))
+    avg = float(sum(rewards) / len(rewards))
+    # Double-clamp: catch any floating point errors
+    clamped = float(max(_EPS, min(1.0 - _EPS, avg)))
+    # Triple-check: force into valid range
+    if clamped <= 0.0 or clamped >= 1.0:
+        clamped = _EPS if clamped <= 0.5 else 1.0 - _EPS
+    return clamped

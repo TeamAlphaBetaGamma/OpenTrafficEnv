@@ -22,7 +22,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ── Configuration ─────────────────────────────────────────────────────────────
-ENV_BASE_URL: str = os.environ.get("ENV_BASE_URL", "http://localhost:7860")
+ENV_BASE_URL: str = os.environ.get("ENV_BASE_URL", "https://sadhana14-alphabetagamma.hf.space/")
 
 # Pre-submission checklist env vars
 API_BASE_URL: str = os.environ.get("API_BASE_URL", "https://api.openai.com/v1")
@@ -79,24 +79,30 @@ def log_step(step: int, action: int, reward: float, done: bool, error: str = Non
 
 def log_end(success: bool, steps: int, score: float, rewards: list[float]) -> None:
     """Emit the [END] marker. Must be called once per episode."""
-    # Validator requires: 0 < score < 1 (not 0.0 / 1.0). Also avoid rounding to 0.0.
-    eps = 0.001
+    # Validator requires: 0 < score < 1 (not 0.0 / 1.0). Absolute guarantee.
     score = float(score)
-    if score <= 0.0:
-        score = eps
-    elif score >= 1.0:
-        score = 1.0 - eps
     
-    # Round for display but ensure still valid
-    score_rounded = round(score, 4)
-    if score_rounded <= 0.0:
-        score_rounded = 0.0001
-    elif score_rounded >= 1.0:
-        score_rounded = 0.9999
+    # Force into safe range: (0.001, 0.999)
+    if score <= 0.0:
+        score = 0.001
+    elif score >= 1.0:
+        score = 0.999
+    else:
+        # Clamp to safe range even for intermediate values
+        score = max(0.001, min(0.999, score))
+    
+    # Additional safety: round and re-check
+    score = round(score, 4)
+    if score <= 0.0:
+        score = 0.0001
+    elif score >= 1.0:
+        score = 0.9999
     
     # Protect rewards: ensure no 0.0 or 1.0 after rounding
     protected_rewards = []
     for r in rewards:
+        r = float(r)
+        r = max(0.001, min(0.999, r))
         r_rounded = round(r, 4)
         if r_rounded <= 0.0:
             r_rounded = 0.0001
@@ -107,7 +113,7 @@ def log_end(success: bool, steps: int, score: float, rewards: list[float]) -> No
     payload = {
         "success": success,
         "steps": steps,
-        "score": score_rounded,
+        "score": score,
         "rewards": protected_rewards
     }
     print(f"[END] {json.dumps(payload)}", flush=True)
@@ -187,8 +193,9 @@ def run_episode(task_id: int, client: OpenAI) -> dict:
 
     logger.info(f"Task {task_id} complete. Score: {grade.score:.4f}")
     
-    # Ensure returned score is also valid
-    final_score = grade.score
+    # Final safety: ensure returned score is in (0, 1)
+    final_score = float(grade.score)
+    final_score = max(0.001, min(0.999, final_score))
     if final_score <= 0.0:
         final_score = 0.001
     elif final_score >= 1.0:
