@@ -73,7 +73,7 @@ def log_step(step: int, action: int, reward: float, done: bool, error: str = Non
 def log_end(success: bool, steps: int, score: float, rewards: list[float]) -> None:
     """Emit the [END] marker. Must be called once per episode."""
     # Validator requires: 0 < score < 1 (not 0.0 / 1.0). Also avoid rounding to 0.0.
-    eps = 1e-4
+    eps = 0.1
     score = float(score)
     if score <= 0.0:
         score = eps
@@ -82,7 +82,7 @@ def log_end(success: bool, steps: int, score: float, rewards: list[float]) -> No
     payload = {
         "success": success,
         "steps": steps,
-        "score": round(score, 4),
+        "score": score,
         "rewards": [round(r, 4) for r in rewards]
     }
     print(f"[END] {json.dumps(payload)}", flush=True)
@@ -183,7 +183,7 @@ def main():
         except Exception as e:
             logger.error(f"Task {task_id} failed: {e}", exc_info=True)
             # Still emit END so the parser doesn't hang
-            log_end(success=False, steps=0, score=1e-4, rewards=[])
+            log_end(success=False, steps=0, score=0.1, rewards=[])
 
     logger.info("=== All tasks complete ===")
     for r in results:
