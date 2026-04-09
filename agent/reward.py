@@ -2,6 +2,7 @@ from models import StepInfo
 
 FAIRNESS_THRESHOLD: float = 20.0   # steps
 EMERGENCY_PENALTY_PER_STEP: float = 0.05  # penalty per step
+_EPS: float = 1e-6  # keeps rewards strictly inside (0.0, 1.0)
 
 def compute_reward(info: StepInfo) -> float:
     """
@@ -26,11 +27,11 @@ def compute_reward(info: StepInfo) -> float:
     # 3. Combine with an offset to keep the agent motivated
     raw = throughput_bonus - (0.1 * wait_penalty) - (0.1 * fuel_penalty) - (0.2 * fairness_penalty) - (0.3 * emergency_penalty)
 
-    # Return strictly in [0.0, 1.0]
-    return float(max(0.0, min(1.0, raw)))
+    # Return strictly in (0.0, 1.0) — both endpoints excluded
+    return float(max(_EPS, min(1.0 - _EPS, raw)))
 
 def compute_episode_score(rewards: list[float]) -> float:
     """Average reward across all steps."""
     if not rewards:
-        return 0.0
-    return float(sum(rewards) / len(rewards))
+        return _EPS
+    return float(max(_EPS, min(1.0 - _EPS, sum(rewards) / len(rewards))))
