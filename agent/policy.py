@@ -101,7 +101,13 @@ def _greedy_decide(state: IntersectionState) -> int:
 # ── Main policy function ──────────────────────────────────────────────────────
 def decide_phase(state: IntersectionState, client: OpenAI | None = None) -> TrafficAction:
     """
-    Apply the hybrid decision waterfall to decide a traffic phase.
+    Decide a traffic phase using the LLM as the primary decision-maker.
+
+    The LLM is ALWAYS called first so that every step produces an API call
+    through the LiteLLM proxy.  Hard safety rules then override the LLM only
+    when strictly required (emergency vehicle present, or excessive wait time).
+    The MIN_GREEN_TIME guard is kept but applied AFTER the LLM call so the
+    proxy still sees the request.
     """
     llm_disabled = _env_flag_true("DISABLE_LLM")
     if client is None and not llm_disabled:
@@ -110,38 +116,33 @@ def decide_phase(state: IntersectionState, client: OpenAI | None = None) -> Traf
     current = state.current_phase
     other = 1 - current
 
-    # ── Rule 1: MIN_GREEN_TIME lock ──────────────────────────────────────────
-    # If the current phase has been active for fewer than MIN_GREEN_TIME steps,
-    # we MUST keep it. This prevents signal flickering.
+    # ── Step 1: Ask the LLM (always, so the proxy sees every call) ───────────
+    llm_phase: int | None = None
+    if not llm_disabled and client is not None:
+        llm_phase = _llm_decide(state, client)
 
+    # Start with the LLM recommendation, fall back to greedy if LLM failed.
+    preferred_phase = llm_phase if llm_phase is not None else _greedy_decide(state)
+
+    # ── Step 2: Hard safety overrides (applied after the LLM call) ───────────
+
+    # MIN_GREEN_TIME lock — prevent signal flickering.
     if state.phase_duration < MIN_GREEN_TIME:
         return TrafficAction(intersection_id=state.intersection_id, phase=current)
 
-    # ── Rule 2: Emergency override ───────────────────────────────────────────
-    # If the OTHER direction has an emergency vehicle, switch to unblock it.
-
+    # Emergency override — unblock emergency vehicle in the other direction.
     if state.has_emergency(other):
         return TrafficAction(intersection_id=state.intersection_id, phase=other)
 
-    # ── Rule 3: Fairness override ─────────────────────────────────────────────
-    # If any vehicle has been waiting too long, force a switch.
-
+    # Fairness override — relieve the direction with the longest wait.
     if state.max_wait > FAIRNESS_THRESHOLD:
-        # Find which phase direction has the highest wait time
         ns_max = max(state.north.cumulative_wait, state.south.cumulative_wait)
         ew_max = max(state.east.cumulative_wait, state.west.cumulative_wait)
         forced_phase = 0 if ns_max >= ew_max else 1
         return TrafficAction(intersection_id=state.intersection_id, phase=forced_phase)
 
-    # ── Rule 4: LLM reasoning ─────────────────────────────────────────────────
-    if not llm_disabled:
-        llm_phase = _llm_decide(state, client)
-        if llm_phase is not None:
-            return TrafficAction(intersection_id=state.intersection_id, phase=llm_phase)
-
-    # ── Rule 5: Greedy fallback ───────────────────────────────────────────────
-    greedy_phase = _greedy_decide(state)
-    return TrafficAction(intersection_id=state.intersection_id, phase=greedy_phase)
+    # ── Step 3: Return LLM / greedy recommendation ────────────────────────────
+    return TrafficAction(intersection_id=state.intersection_id, phase=preferred_phase)
 
 
 def decide_all_phases(
