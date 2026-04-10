@@ -129,9 +129,9 @@ def run_episode(task_id: int, client: OpenAI | None) -> dict:
         result: StepResult = env_step(actions)
 
         # ── Compute reward (use environment's reward if available) ─
-        _EPS = 0.01  # Must be >= 0.005 so :.2f formats as "0.01", never "0.00"
+        _EPS = 0.001
         if result.reward > 0.0:
-            # Clamp env reward to (0.01, 0.99) so 2dp format is always valid
+            # Clamp env reward to (0, 1) exclusive – boundary values cause validator rejection
             reward = float(max(_EPS, min(1.0 - _EPS, result.reward)))
         else:
             reward = compute_reward(result.info)
@@ -153,9 +153,13 @@ def run_episode(task_id: int, client: OpenAI | None) -> dict:
 
     logger.info(f"Task {task_id} complete. Score: {grade.score:.4f}")
     
-    # Final safety: ensure returned score is in (0.01, 0.99) so 2dp is always valid
+    # Final safety: ensure returned score is in (0, 1)
     final_score = float(grade.score)
-    final_score = max(0.01, min(0.99, final_score))
+    final_score = max(0.001, min(0.999, final_score))
+    if final_score <= 0.0:
+        final_score = 0.001
+    elif final_score >= 1.0:
+        final_score = 0.999
     
     return {"task_id": task_id, "total_reward": total_reward, "steps": step, "score": final_score, "success": grade.success}
 
@@ -180,9 +184,8 @@ def main():
             results.append(result)
         except Exception as e:
             logger.error(f"Task {task_id} failed: {e}", exc_info=True)
-            # Still emit END so the parser doesn't hang.
-            # Use 0.01 (not 0.001) — 0.001 formats as "0.00" at 2dp, failing the (0,1) check.
-            log_end(success=False, steps=0, score=0.01, rewards=[0.01])
+            # Still emit END so the parser doesn't hang
+            log_end(success=False, steps=0, score=0.001, rewards=[0.001])
 
     logger.info("=== All tasks complete ===")
     for r in results:
