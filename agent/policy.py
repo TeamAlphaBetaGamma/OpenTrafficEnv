@@ -16,17 +16,14 @@ def _env_flag_true(name: str) -> bool:
     return v in {"1", "true", "yes", "y", "on"}
 
 
+# ── OpenAI client (initialized from env vars) ─────────────────────────────────
 def _get_openai_client() -> OpenAI:
     """Build the OpenAI client using env variables."""
-    # Default fallbacks to prevent KeyError in local testing
-    if "API_BASE_URL" not in os.environ:
-        os.environ["API_BASE_URL"] = "https://api.openai.com/v1"
-    if "API_KEY" not in os.environ:
-        os.environ["API_KEY"] = os.environ.get("HF_TOKEN", "") or os.environ.get("OPENAI_API_KEY", "dummy_key")
-
+    # Checklist requires HF_TOKEN; OPENAI_API_KEY is supported as an alias.
+    api_key = os.environ.get("HF_TOKEN") or os.environ.get("OPENAI_API_KEY", "")
     return OpenAI(
-        base_url=os.environ["API_BASE_URL"],
-        api_key=os.environ["API_KEY"],
+        base_url=os.environ.get("API_BASE_URL", "https://api.openai.com/v1"),
+        api_key=api_key,
     )
 
 MODEL_NAME: str = os.environ.get("MODEL_NAME", "gpt-4o-mini")
