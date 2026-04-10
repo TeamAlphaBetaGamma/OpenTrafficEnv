@@ -156,8 +156,9 @@ Important: `.env` commonly contains secrets (e.g., API keys). Do not commit it.
 
 - `ENV_BASE_URL`: where `inference.py` calls the environment (default `http://localhost:7860`)
 - `DISABLE_LLM`: set to `1` to force the policy to avoid LLM calls
-- `API_KEY`: API key injected by the evaluation harness (required when LLM is enabled)
-- `API_BASE_URL`: OpenAI-compatible base URL injected by the evaluation harness (required when LLM is enabled)
+- `HF_TOKEN`: OpenAI API key (checklist-required; used when LLM is enabled)
+- `OPENAI_API_KEY`: supported alias for the same key
+- `API_BASE_URL`: OpenAI-compatible base URL (default `https://api.openai.com/v1`)
 - `MODEL_NAME`: model name string used by the policy client
 - `VALIDATION_TIMEOUT_S`: timeout for `validate_runtime.py` (default `1200`)
 

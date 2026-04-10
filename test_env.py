@@ -56,7 +56,7 @@ state = env.reset()
 total_episode_reward = 0
 
 print(f"--- Starting Simulation: Task {env.task.upper()} ---")
-print("NOTE: Ensure API_KEY, API_BASE_URL, and MODEL_NAME are configured in your console to use the AI!")
+print("NOTE: Ensure $env:HF_TOKEN and $env:MODEL_NAME are configured in your console to use the AI!")
 
 # Run for 10 steps (or use env.max_steps for a full episode)
 for i in range(10):
