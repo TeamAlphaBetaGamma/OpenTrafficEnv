@@ -18,11 +18,20 @@ def _env_flag_true(name: str) -> bool:
 
 # ── OpenAI client (initialized from env vars) ─────────────────────────────────
 def _get_openai_client() -> OpenAI:
-    """Build the OpenAI client using env variables."""
-    # Checklist requires HF_TOKEN; OPENAI_API_KEY is supported as an alias.
-    api_key = os.environ.get("HF_TOKEN") or os.environ.get("OPENAI_API_KEY", "")
+    """Build the OpenAI client using env variables injected by the validator.
+
+    Priority for API key: API_KEY (validator-injected) > HF_TOKEN > OPENAI_API_KEY.
+    API_BASE_URL must be set by the validator; no hardcoded default is used so
+    that all LLM calls are routed through the LiteLLM proxy.
+    """
+    api_key = (
+        os.environ.get("API_KEY")
+        or os.environ.get("HF_TOKEN")
+        or os.environ.get("OPENAI_API_KEY", "no-key")
+    )
+    base_url = os.environ.get("API_BASE_URL", "https://api.openai.com/v1")
     return OpenAI(
-        base_url=os.environ.get("API_BASE_URL", "https://api.openai.com/v1"),
+        base_url=base_url,
         api_key=api_key,
     )
 
