@@ -2,7 +2,7 @@ from models import StepInfo
 
 FAIRNESS_THRESHOLD: float = 20.0   # steps
 EMERGENCY_PENALTY_PER_STEP: float = 0.05  # penalty per step
-_EPS: float = 0.001  # keeps rewards strictly inside (0.0, 1.0)
+_EPS: float = 0.01  # keeps rewards strictly inside (0.0, 1.0) AND safely non-zero at 2dp
 
 def compute_reward(info: StepInfo) -> float:
     """
@@ -31,13 +31,13 @@ def compute_reward(info: StepInfo) -> float:
     return float(max(_EPS, min(1.0 - _EPS, raw)))
 
 def compute_episode_score(rewards: list[float]) -> float:
-    """Average reward across all steps."""
+    """Average reward across all steps, always returning a value strictly in (0.01, 0.99)."""
     if not rewards:
         return _EPS
     avg = float(sum(rewards) / len(rewards))
-    # Double-clamp: catch any floating point errors
+    # Clamp to (_EPS, 1.0 - _EPS) = (0.01, 0.99) so 2dp format is always "0.01".."0.99"
     clamped = float(max(_EPS, min(1.0 - _EPS, avg)))
-    # Triple-check: force into valid range
+    # Final guard for any floating-point edge case
     if clamped <= 0.0 or clamped >= 1.0:
         clamped = _EPS if clamped <= 0.5 else 1.0 - _EPS
     return clamped
