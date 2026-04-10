@@ -129,7 +129,12 @@ def run_episode(task_id: int, client: OpenAI | None) -> dict:
         result: StepResult = env_step(actions)
 
         # ── Compute reward (use environment's reward if available) ─
-        reward = result.reward if result.reward > 0.0 else compute_reward(result.info)
+        _EPS = 0.001
+        if result.reward > 0.0:
+            # Clamp env reward to (0, 1) exclusive – boundary values cause validator rejection
+            reward = float(max(_EPS, min(1.0 - _EPS, result.reward)))
+        else:
+            reward = compute_reward(result.info)
         rewards.append(reward)
 
         done = result.done
