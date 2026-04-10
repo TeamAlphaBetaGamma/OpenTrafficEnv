@@ -21,18 +21,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ── Configuration (Required Environment Variables) ───────────────────────────
-# Rule 3: API_BASE_URL — must include a default value
-API_BASE_URL: str = os.environ.get("API_BASE_URL", "https://api.openai.com/v1")
-
-# Rule 3: MODEL_NAME — must include a default value
-MODEL_NAME: str = os.environ.get("MODEL_NAME", "gpt-4o-mini")
-
-# Rule 3: HF_TOKEN — mandatory (no default required)
-HF_TOKEN: str | None = os.environ.get("HF_TOKEN")
-
-# Environment server URL
+# ── Configuration ─────────────────────────────────────────────────────────────
 ENV_BASE_URL: str = os.environ.get("ENV_BASE_URL", "https://sadhana14-alphabetagamma.hf.space/")
+
+MODEL_NAME: str = os.environ.get("MODEL_NAME", "gpt-4o-mini")
 
 TASK_CONFIG = {
     1: {
@@ -170,59 +162,15 @@ def run_episode(task_id: int, client: OpenAI | None) -> dict:
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-
-def _llm_ping(client: OpenAI) -> None:
-    """Make a guaranteed LLM call through the proxy at startup.
-
-    This is the ONLY call we are certain will always fire, regardless of
-    whether decide_phase's rule 1/2/3 short-circuits every step.
-    The hackathon validator requires at least one API call to be observed
-    on the provided API_BASE_URL / API_KEY.
-    """
-    try:
-        logger.info("Sending startup LLM ping through proxy...")
-        client.chat.completions.create(
-            model=MODEL_NAME,
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are a traffic signal controller.",
-                },
-                {
-                    "role": "user",
-                    "content": (
-                        "Which phase (0=NS-green or 1=EW-green) should be active "
-                        "when both directions have equal traffic? "
-                        'Reply ONLY with JSON: {"phase": 0}'
-                    ),
-                },
-            ],
-            max_tokens=10,
-            temperature=0.0,
-        )
-        logger.info("LLM proxy ping successful.")
-    except Exception as e:
-        logger.warning(f"LLM proxy ping failed (will continue): {e}")
-
-
 def main():
     logger.info("=== OpenTrafficEnv Inference Script Starting ===")
-    logger.info(f"ENV_BASE_URL : {ENV_BASE_URL}")
-    logger.info(f"API_BASE_URL : {API_BASE_URL}")
-    logger.info(f"MODEL_NAME   : {MODEL_NAME}")
-    logger.info(f"HF_TOKEN set : {bool(HF_TOKEN)}")
+    logger.info(f"ENV_BASE_URL: {ENV_BASE_URL}")
+    logger.info(f"MODEL_NAME: {os.environ.get('MODEL_NAME', 'not set')}")
 
-    # Build shared OpenAI client.
-    # Uses API_BASE_URL and API_KEY injected by the hackathon validator (Rule 2 & 3).
+    # Build shared OpenAI client only if LLM is enabled.
     llm_disabled = os.environ.get("DISABLE_LLM", "").strip().lower() in {"1", "true", "yes", "y", "on"}
-    client: OpenAI | None = None if llm_disabled else _get_openai_client()
-
-    # ── GUARANTEED proxy call ────────────────────────────────────────────────
-    # decide_phase rules 1/2/3 can short-circuit ALL steps, meaning rule 4
-    # (the LLM call) may never trigger during an episode. This explicit ping
-    # ensures the validator always observes at least one API request.
-    if client is not None:
-        _llm_ping(client)
+    client: OpenAI | None
+    client = None if llm_disabled else _get_openai_client()
 
     # Run all 3 tasks
     results = []
@@ -233,7 +181,7 @@ def main():
         except Exception as e:
             logger.error(f"Task {task_id} failed: {e}", exc_info=True)
             # Still emit END so the parser doesn't hang.
-            # Use 0.01 (not 0.001) — 0.001 formats as "0.00" at 2dp, failing (0,1) check.
+            # Use 0.01 (not 0.001) — 0.001 formats as "0.00" at 2dp, failing the (0,1) check.
             log_end(success=False, steps=0, score=0.01, rewards=[0.01])
 
     logger.info("=== All tasks complete ===")
