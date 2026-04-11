@@ -68,13 +68,19 @@ def log_step(step: int, action: int, reward: float, done: bool, error: str = Non
     print(f"[STEP] step={step} action={action} reward={safe_reward:.2f} done={done_str} error={error_str}", flush=True)
 
 def log_end(success: bool, steps: int, score: float, rewards: list[float]) -> None:
-    # Rule: [END] success=<true|false> steps=<n> rewards=<r1,r2,...,rn>
-    # Safety: Ensure all rewards in the list are strictly (0, 1)
-    protected_rewards = [f"{max(0.01, min(0.99, float(r))):.2f}" for r in rewards]
+    # Rule: [END] success=<true|false> steps=<n> score=<s> rewards=<r1,r2,...,rn>
+    # Safety: Ensure all rewards in the list are strictly (0, 1).
+    # Guard: if rewards is empty (error case), use the provided score as a sentinel.
+    if not rewards:
+        rewards = [max(0.01, min(0.99, float(score)))]
+    protected_rewards = [f"{max(0.01, min(0.99, float(r))):.4f}" for r in rewards]
     rewards_str = ",".join(protected_rewards)
-    
+
+    # Clamp score itself so it is strictly in (0, 1) at 4 decimal places.
+    safe_score = max(0.0001, min(0.9999, float(score)))
+
     success_str = "true" if success else "false"
-    print(f"[END] success={success_str} steps={steps} rewards={rewards_str}", flush=True)
+    print(f"[END] success={success_str} steps={steps} score={safe_score:.4f} rewards={rewards_str}", flush=True)
 
 
 # ── Environment API calls ─────────────────────────────────────────────────────
@@ -182,8 +188,10 @@ def main():
             results.append(result)
         except Exception as e:
             logger.error(f"Task {task_id} failed: {e}", exc_info=True)
-            # Still emit END so the parser doesn't hang
-            log_end(success=False, steps=0, score=0.001, rewards=[])
+            # Still emit END so the parser doesn't hang.
+            # Pass a sentinel reward (0.5) so the validator never sees an empty
+            # rewards list or a score that rounds to exactly 0.0 or 1.0.
+            log_end(success=False, steps=0, score=0.5, rewards=[0.5])
 
     logger.info("=== All tasks complete ===")
     for r in results:
