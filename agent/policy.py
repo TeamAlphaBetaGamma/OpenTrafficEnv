@@ -19,8 +19,13 @@ def _env_flag_true(name: str) -> bool:
 # ── OpenAI client (initialized from env vars) ─────────────────────────────────
 def _get_openai_client() -> OpenAI:
     """Build the OpenAI client using env variables."""
-    # Checklist requires HF_TOKEN; OPENAI_API_KEY is supported as an alias.
-    api_key = os.environ.get("HF_TOKEN") or os.environ.get("OPENAI_API_KEY", "")
+    # Validator injects API_KEY and API_BASE_URL — always prefer those.
+    # Fall back to HF_TOKEN / OPENAI_API_KEY for local runs.
+    api_key = (
+        os.environ.get("API_KEY")
+        or os.environ.get("HF_TOKEN")
+        or os.environ.get("OPENAI_API_KEY", "")
+    )
     return OpenAI(
         base_url=os.environ.get("API_BASE_URL", "https://api.openai.com/v1"),
         api_key=api_key,
